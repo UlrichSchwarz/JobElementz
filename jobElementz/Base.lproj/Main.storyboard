@@ -1,25 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="jobElementz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="7gM-0M-iVm"/>
+                        <viewControllerLayoutGuide type="bottom" id="MHT-Pq-ytY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="qtu-7Y-SRC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyX-Yt-UQD" customClass="ProgressView" customModule="jobElementz">
+                                <rect key="frame" x="137" y="136" width="327" height="327"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="wup-1d-6po">
+                                <rect key="frame" x="215" y="570" width="338" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPE-c9-xGJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="tey-l8-Lzf"/>
+                                            <constraint firstAttribute="width" constant="72" id="tmk-8o-rqg"/>
+                                        </constraints>
+                                        <state key="normal" title="Neustart"/>
+                                        <connections>
+                                            <action selector="resetTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ac-WK-P21"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bD-sN-gX0">
+                                        <rect key="frame" x="97" y="0.0" width="73" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="CA2-d6-PEg"/>
+                                            <constraint firstAttribute="width" constant="73" id="fHg-yY-S7r"/>
+                                        </constraints>
+                                        <state key="normal" title="Start/Stop"/>
+                                        <connections>
+                                            <action selector="startStopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vwg-tH-BGp"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJq-3f-RZv">
+                                        <rect key="frame" x="195" y="0.0" width="143" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="143" id="cOZ-hc-k1s"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="89" id="wO4-Nz-5fw"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="0000">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="36" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MHT-Pq-ytY" firstAttribute="top" secondItem="wup-1d-6po" secondAttribute="bottom" id="FIV-Be-iM7"/>
+                            <constraint firstItem="gyX-Yt-UQD" firstAttribute="centerX" secondItem="qtu-7Y-SRC" secondAttribute="centerX" id="LAb-Wg-r4o"/>
+                            <constraint firstItem="gyX-Yt-UQD" firstAttribute="centerY" secondItem="qtu-7Y-SRC" secondAttribute="centerY" id="laM-A2-CzC"/>
+                            <constraint firstItem="wup-1d-6po" firstAttribute="centerX" secondItem="qtu-7Y-SRC" secondAttribute="centerX" id="mHp-KI-Ppl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="outerTimerLabel" destination="bJq-3f-RZv" id="MQ0-CQ-nAO"/>
+                        <outlet property="progressView" destination="gyX-Yt-UQD" id="G1v-h2-f7s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="259" y="289"/>
         </scene>
     </scenes>
 </document>
