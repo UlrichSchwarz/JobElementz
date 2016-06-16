@@ -11,10 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    var innerProgress = 0.0
-    
-    let outerIntervalSeconds = 60
-    let innerIntervalSeconds = 10
+    let outerIntervalSeconds = 12000
+    let innerIntervalSeconds = 600
     
     
     let maxIntervals = 8.0
@@ -38,7 +36,14 @@ class ViewController: UIViewController {
             self.progressView.updateOuterProgress(self.outerProgress)
         }
     }
-    
+    var innerProgress = 0.0 {
+        didSet {
+            if self.innerProgress == 0 {
+                self.progressView.resetProgress()
+            }
+            self.progressView.updateInnerProgress(self.innerProgress)
+        }
+    }
     
     
     @IBOutlet var progressView: ProgressView!
@@ -47,15 +52,26 @@ class ViewController: UIViewController {
     @IBAction func resetTapped(sender: UIButton) {
         
        resetOuterTimer()
+       resetInnerTimer()
     }
     
     @IBAction func startStopTapped(sender: UIButton) {
-        
-        if !outerTimer.valid {
-            startOuterTimer()
-        } else {
-            outerTimer.invalidate()
-        }
+        startInnerTimer()
+        startOuterTimer()
+//        if !outerTimer.valid {
+//            startOuterTimer()
+//            startInnerTimer()
+//           
+//        } else {
+//            outerTimer.invalidate()
+//        }
+//        
+//        if !innerTimer.valid {
+//            startInnerTimer()
+//            
+//        } else {
+//            innerTimer.invalidate()
+//        }
     }
     
     func resetOuterTimer () {
@@ -63,6 +79,11 @@ class ViewController: UIViewController {
         outerTimerLabel.text = "0000"
         outerTotalTime = NSTimeInterval()
     }
+    
+    func resetInnerTimer () {
+        innerTimer.invalidate()
+        
+        innerTotalTime = NSTimeInterval()    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +97,27 @@ class ViewController: UIViewController {
         outerProgress = outerTotalTime/Double(outerIntervalSeconds)
         outerTimerLabel.text = String(format: "%04d", seconds)
     }
+    func innerTimerUpdate() {
+        
+        let seconds = getInnerTimerSeconds()
+        innerProgress = innerTotalTime/Double(innerIntervalSeconds)
+        
+    }
+    
     func getOuterTimerSeconds() -> Int {
         
         let now = NSDate.timeIntervalSinceReferenceDate()
         outerTotalTime += now - outerLastInterval
         outerLastInterval = now
         return Int(outerTotalTime)
+    }
+    
+    func getInnerTimerSeconds() -> Int {
+        
+        let now = NSDate.timeIntervalSinceReferenceDate()
+        innerTotalTime += now - innerLastInterval
+        innerLastInterval = now
+        return Int(innerTotalTime)
     }
     
     func startOuterTimer() {
@@ -91,6 +127,15 @@ class ViewController: UIViewController {
         outerTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: outerTimerSelector, userInfo: nil, repeats: true)
         
         outerLastInterval = NSDate.timeIntervalSinceReferenceDate()
+    }
+    
+    func startInnerTimer() {
+        
+        let innerTimerSelector: Selector = #selector(ViewController.innerTimerUpdate)
+        
+        innerTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: innerTimerSelector, userInfo: nil, repeats: true)
+        
+        innerLastInterval = NSDate.timeIntervalSinceReferenceDate()
     }
     
 }

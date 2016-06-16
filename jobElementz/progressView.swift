@@ -13,7 +13,7 @@ class ProgressView: UIView {
     
     
     let π = CGFloat(M_PI)
-    let outerStrokeColor = UIColor.lightGrayColor()
+    let outerStrokeColor = UIColor.blackColor()
     let innerStrokeColor = UIColor.lightGrayColor()
     
     var outerProgressLine = CAShapeLayer()
@@ -77,7 +77,7 @@ class ProgressView: UIView {
         outerProgressLine.path = outerCircle.CGPath
         outerProgressLine.strokeColor = UIColor.greenColor().CGColor
         outerProgressLine.fillColor = UIColor.blackColor().CGColor
-        outerProgressLine.lineWidth = 10
+        outerProgressLine.lineWidth = 17
         outerProgressLine.lineCap = kCALineCapRound
         outerCurrentProgress = 0
         self.layer.addSublayer(outerProgressLine)
@@ -88,8 +88,8 @@ class ProgressView: UIView {
         innerCircle.stroke()
         innerProgressLine.path = innerCircle.CGPath
         innerProgressLine.strokeColor = UIColor.redColor().CGColor
-        innerProgressLine.fillColor = UIColor.blueColor().CGColor
-        innerProgressLine.lineWidth = 10
+        innerProgressLine.fillColor = UIColor.blackColor().CGColor
+        innerProgressLine.lineWidth = 17
         innerProgressLine.lineCap = kCALineCapRound
         innerCurrentProgress = 0
         self.layer.addSublayer(innerProgressLine)
