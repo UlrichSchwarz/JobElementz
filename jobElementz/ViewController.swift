@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    let outerIntervalSeconds = 12000
-    let innerIntervalSeconds = 600
+    let outerIntervalSeconds = 30
+    let innerIntervalSeconds = 55
     
     
     let maxIntervals = 8.0
@@ -56,22 +56,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startStopTapped(sender: UIButton) {
-        startInnerTimer()
-        startOuterTimer()
-//        if !outerTimer.valid {
-//            startOuterTimer()
-//            startInnerTimer()
-//           
-//        } else {
-//            outerTimer.invalidate()
-//        }
-//        
-//        if !innerTimer.valid {
-//            startInnerTimer()
-//            
-//        } else {
-//            innerTimer.invalidate()
-//        }
+      
+        if !outerTimer.valid {
+            startOuterTimer()
+        } else {
+            outerTimer.invalidate()
+        }
+        
+        if !innerTimer.valid {
+            startInnerTimer()
+            
+        } else {
+            innerTimer.invalidate()
+        }
+        
+        
+        
     }
     
     func resetOuterTimer () {
@@ -87,6 +87,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         
             }
     
