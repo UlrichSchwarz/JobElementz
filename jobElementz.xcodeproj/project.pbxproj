@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53C181AD1D183B610041D5BC /* blackroundbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 53C181AC1D183B610041D5BC /* blackroundbutton.png */; };
 		53FC34A71D0C80700066D093 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC34A61D0C80700066D093 /* AppDelegate.swift */; };
 		53FC34A91D0C80700066D093 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC34A81D0C80700066D093 /* ViewController.swift */; };
 		53FC34AC1D0C80700066D093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FC34AA1D0C80700066D093 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53C181AC1D183B610041D5BC /* blackroundbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackroundbutton.png; sourceTree = "<group>"; };
 		53FC34A31D0C80700066D093 /* jobElementz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobElementz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FC34A61D0C80700066D093 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53FC34A81D0C80700066D093 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				53FC34A81D0C80700066D093 /* ViewController.swift */,
 				53FC34AA1D0C80700066D093 /* Main.storyboard */,
 				53FC34AD1D0C80700066D093 /* Assets.xcassets */,
+				53C181AC1D183B610041D5BC /* blackroundbutton.png */,
 				53FC34AF1D0C80700066D093 /* LaunchScreen.storyboard */,
 				53FC34B21D0C80700066D093 /* Info.plist */,
 				53FC34BA1D0C82A20066D093 /* progressView.swift */,
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53C181AD1D183B610041D5BC /* blackroundbutton.png in Resources */,
 				53FC34B11D0C80700066D093 /* LaunchScreen.storyboard in Resources */,
 				53FC34AE1D0C80700066D093 /* Assets.xcassets in Resources */,
 				53FC34AC1D0C80700066D093 /* Main.storyboard in Resources */,
@@ -290,6 +294,7 @@
 				53FC34B71D0C80700066D093 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

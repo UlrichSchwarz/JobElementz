@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    let outerIntervalSeconds = 30
-    let innerIntervalSeconds = 55
+    let outerIntervalSeconds = 12000
+    let innerIntervalSeconds = 3600
     
     
     let maxIntervals = 8.0
@@ -96,10 +96,28 @@ class ViewController: UIViewController {
     
     func outerTimerUpdate() {
         
-        let seconds = getOuterTimerSeconds()
+        let (h,m,s) = secondsToHoursMinutesSeconds()
         outerProgress = outerTotalTime/Double(outerIntervalSeconds)
-        outerTimerLabel.text = String(format: "%04d", seconds)
+        let our = String(format: "%02d",h)
+        let minute = String(format: "%02d",m)
+        let second = String(format: "%02d",s)
+        outerTimerLabel.text = our + ":" + minute + ":" + second
+        
+        
+        
+        //print(seconds)
+        
     }
+    
+    
+    func secondsToHoursMinutesSeconds () -> (Int, Int, Int) {
+        let seconds = getOuterTimerSeconds()
+        let remainSeconds = outerIntervalSeconds - seconds
+        return (remainSeconds / 3600, (remainSeconds % 3600) / 60, (remainSeconds % 3600) % 60)
+    }
+    
+    
+    
     func innerTimerUpdate() {
         
         let seconds = getInnerTimerSeconds()
